@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myboot04.member.dao.MemberDAO">
+
+
+
+	<select id="selectAllMemberList" resultType="com.myboot04.member.vo.MemberVO">
+   
+        select userid,pwd,address,phone,name from members       
+     
+	</select>
+
+	<insert id="insertMember" parameterType="com.myboot04.member.vo.MemberVO">
+     
+       insert into members(userid ,pwd, name, phone,address)
+       values(#{userid}, #{pwd}, #{name}, #{phones},#{address})
+  
+	</insert>
+
+
+	<update id="updateMember" parameterType="com.myboot04.member.vo.MemberVO">
+   
+        update members
+        set pwd=#{pwd}, name=#{name}, phone=#{phone}
+        where
+        userid=#{userid}
+ 
+	</update>
+
+	<delete id="deleteMember" parameterType="String">
+
+      delete from members
+      where
+      userid=#{userid}
+
+	</delete>
+	<select id="loginById" resultType="com.myboot04.member.vo.MemberVO"
+		parameterType="com.myboot04.member.vo.MemberVO">
+
+      select userid,pwd,address,phone,name from members   
+      where userid=#{userid} and pwd=#{pwd}      
+  
+	</select>
+
+</mapper>
