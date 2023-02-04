@@ -20,7 +20,7 @@ public class MemberService {
 	public int insertMember(MemberVO memberVO) {
 		return memberDAO.insertMember(memberVO);
 	}
-	
+	//w주석
 	public int updateMember(MemberVO memberVO) {
 		return memberDAO.updateMember(memberVO);
 	}
